@@ -175,14 +175,16 @@ continued 2-of-3 progress, restart/catch-up, subsequent transfer, 1-of-3 rejecti
 restart anti-equivocation, exact-proposal retry and recovery of all four processes.
 It is finite and suitable for the existing CI job; it does not deploy a network.
 
-Release scope remains a local research implementation. Public release/license
-review, encrypted wallet custody, general state proofs, producer rotation,
+Release scope remains a local research implementation. Encrypted wallet
+custody, general state proofs, producer rotation,
 public admission, AI/HDD integration and Mainnet remain outside this milestone.
 
 
-Release preparation update (2026-10-02): milestone 0c177fd accepted; release
-candidate v0.1.0-localnet.1 adds operational CLI/supervision without changing
+Publication update (2026-10-02): milestone 0c177fd accepted; public source release
+v0.1.0-localnet.1 adds operational CLI/supervision without changing
 these canonical protocol bytes. DEC-Q1-015 is now approved as Apache-2.0.
 README.md documents wallet/sign/submit/status commands and the foreground
-supervisor. These are local test tools, not production custody. Publication is
-a separate explicitly authorized action; no remote publication has occurred.
+supervisor. These are local test tools, not production custody. The separately
+authorized [source release](https://github.com/YousefBahrami/Q1/releases/tag/v0.1.0-localnet.1)
+and remote CI are complete. No public network has been launched and none of
+the local protocol rules above has been promoted to a public-network rule.

@@ -1,10 +1,12 @@
 # Q1 license decision — DEC-Q1-015
 
 Status: APPROVED, 2026-10-02
-Decision: Apache-2.0, explicitly selected by the project owner during release
+Decision: Apache-2.0, explicitly selected by project initiator Yousef Bahrami during release
 candidate preparation. The authoritative text is in [LICENSE](LICENSE).
-This supersedes the previous no-license placeholder. No remote publication is
-implied by license approval. Dependencies retain their own licenses.
+This supersedes the previous no-license placeholder. Separate human approval
+subsequently authorized the published source release v0.1.0-localnet.1.
+Dependencies retain their own licenses. Project attribution does not assign
+network ownership or change the license's copyright provisions.
 
 | Option | Type / patents | Modified hosted services | Compatibility / Q1 fit |
 |---|---|---|---|

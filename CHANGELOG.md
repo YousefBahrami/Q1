@@ -4,7 +4,14 @@ All notable specification, architecture, and implementation changes are
 recorded here. Changes to protocol semantics require an approved decision or
 ADR and must identify affected requirement IDs.
 
-## v0.1.0-localnet.1 — candidate, 2026-10-02 (not published)
+## Post-release documentation review — 2026-10-02
+
+- Corrected public-source/CI status and project attribution; protocol behavior unchanged.
+- Added differentiation audit, proposed PUBLIC TESTNET v0 gates and pre-offer boundary.
+- Public testnet implementation remains subject to explicit human approval.
+- The published tag and original release assets remain unchanged.
+
+## v0.1.0-localnet.1 — public source release, 2026-10-02
 
 - Accepted LOCALNET v0 protocol milestone 0c177fd; canonical vectors unchanged.
 - Approved Apache-2.0 under DEC-Q1-015; included LICENSE and package metadata.
@@ -13,8 +20,13 @@ ADR and must identify affected requirement IDs.
 - Reworked README, contribution/security guidance and release notes for new users.
 - Prepared deterministic source-only archive/checksums with personal context,
   original Git history, keys, node data and generated output excluded.
-- Audited release hygiene and documented build-cache size. No original history
-  was rewritten and no repository/tag/release was pushed.
+- Audited release hygiene and documented build-cache size. Original private history
+  was preserved privately; a clean public repository was initialized from the snapshot.
+- Published the tag and experimental release after remote CI passed; anonymous
+  fresh-clone tests and public asset checksum verification subsequently passed.
+
+The entries below are dated implementation history. Their then-current permission,
+license and publication boundaries are superseded by later explicit decisions.
 
 ## Unreleased — LOCALNET v0 four-node execution (2026-10-02)
 
@@ -28,8 +40,8 @@ ADR and must identify affected requirement IDs.
   acceptance including 2-of-3 progress with a voter offline, restart/catch-up,
   equal StateRoot, insufficient quorum and post-restart continuation.
 - Wired acceptance into the existing local/CI check runner. Public deployment,
-  final Mainnet protocol, producer rotation and license decision remain outside
-  this local milestone; no remote CI result is claimed.
+  final Mainnet protocol, producer rotation and license decision were outside
+  that local milestone; its report predates the later successful publication CI.
 
 ## Unreleased — Phase 0.1 normalization
 

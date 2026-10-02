@@ -3,10 +3,13 @@
 Q1 LOCALNET v0 is experimental software. It has not undergone a complete
 independent security audit and should not secure real-world value. It is not
 Mainnet. Consensus, economics and NONE delay are explicitly local test rules.
+The source is public at [YousefBahrami/Q1](https://github.com/YousefBahrami/Q1),
+maintained by Yousef Bahrami. Source publication and passing remote CI do not
+establish public-network readiness or replace security review.
 
 ## Supported scope and known limits
 
-- v0.1.0-localnet.1 is a local research release candidate, not production-ready.
+- v0.1.0-localnet.1 is a published experimental LOCALNET source release, not production-ready.
 - Nodes are loopback-only. Do not forward ports or expose RPC to the Internet.
   Transport is unencrypted and not hardened for hostile public peers.
 - One fixed producer and three fixed voters use 2-of-3 certificates. This is
@@ -27,7 +30,7 @@ Never reuse their identities, or local demo wallets, for valuable networks.
 
 No approved public security address or private intake service exists yet.
 No contact address is invented by this release. If you already have a private
-channel to the project owner, send a minimal reproduction there. Otherwise,
+channel to the project maintainer, send a minimal reproduction there. Otherwise,
 retain details locally until an official private reporting channel is published;
 do not post exploit details or keys in a public issue. An official intake must
 be configured before operating any external network or holding real value.

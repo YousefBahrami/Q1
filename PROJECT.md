@@ -14,11 +14,16 @@ Private working checkouts additionally use AGENTS.md/YOS when present. Those
 personal collaboration files are excluded from the public source snapshot;
 they are not build, test, contribution or protocol dependencies.
 
-Current target: Q1 LOCALNET v0 PUBLIC RELEASE CANDIDATE, v0.1.0-localnet.1.
-The protocol milestone at 0c177fd was accepted on 2026-10-02. Current work makes
-it independently reproducible; no protocol decisions are reopened. Public
-network operation, monetary value, remote publication and tag pushes are excluded.
-Apache-2.0 was explicitly selected for DEC-Q1-015 during this phase.
+Current phase: post-release review of Q1 LOCALNET v0, v0.1.0-localnet.1.
+The [public source release](https://github.com/YousefBahrami/Q1/releases/tag/v0.1.0-localnet.1)
+and remote CI are complete. This is public source distribution, not a public
+network or Mainnet. Q1 is an open-source protocol project initiated by Yousef
+Bahrami, who maintains the project. Apache-2.0 is approved under DEC-Q1-015.
+
+The current human instruction authorizes status/attribution corrections,
+an evidence-based differentiation audit and a PUBLIC TESTNET v0 plan only.
+Testnet implementation requires explicit approval of the thesis and milestone.
+No consensus, economics, delay or admission decision is made by these documents.
 
 Current authority: 2026-10-01 progressive implementation instruction and
 2026-10-02 explicit LOCALNET_V0 full-state, fixed-producer and minimal-schema
@@ -40,18 +45,24 @@ A. DONE
   transfers, one voter killed, continued finalization, restart and catch-up,
   equal StateRoot, insufficient quorum rejection and post-restart continuation.
 - Frozen LOCALNET vectors alongside existing cross-language protocol vectors.
+- Public repository initialized from the clean reviewed snapshot without private
+  history; release tag/assets published after successful remote CI.
+- Anonymous fresh public clone build, complete checks, signed transfers and
+  four-process recovery reproduced the accepted StateRoot.
 
 B. IMPLEMENTABLE NOW
 - Reproduce the complete local milestone with `python3 scripts/check_all.py`.
-- Review the local-only release candidate and its documented limitations.
-- Further operational packaging within the same approved local profile.
+- Review the [technical thesis](docs/research/Q1_DIFFERENTIATION_AUDIT.md) and
+  [proposed testnet gates](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md).
+- Maintain public status and attribution without changing protocol behavior.
 
 C. BLOCKED BY REAL PROTOCOL DECISION (outside completed local acceptance)
 - General public-network quorum/fault model, producer selection and round changes.
 - Final Mainnet state/proof, compound-schema, delay and economic policies.
 - Public-network transport/admission and resource policies.
 - No license blocker: DEC-Q1-015 is approved as Apache-2.0.
-- Remote publication still requires explicit authorization of the prepared snapshot.
+- No source-publication blocker: the explicitly authorized release is public.
+- PUBLIC TESTNET implementation and deployment are not authorized by this phase.
 
 D. DEFERRED TO LATER MILESTONE
 - Producer failover, view changes and automatic recovery of unfinalized producer
@@ -62,7 +73,9 @@ D. DEFERRED TO LATER MILESTONE
 
 The four-node acceptance target is implemented. This is a local research
 milestone, not a production/public-network release or completed final Q1 protocol.
-Remote CI and public distribution have not been performed.
+Remote CI and public source distribution passed; public-network operation has
+not been performed. [Post-release review](docs/releases/POST_RELEASE_REVIEW.md)
+records the publication evidence and status corrections.
 
 Historical schema approvals: DEC-Q1-027 Sessions 1–5C in docs/32–41.
 RoundNumber closure: docs/44. Historical reports remain historical; this file

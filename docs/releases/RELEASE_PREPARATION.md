@@ -1,5 +1,10 @@
 # LOCALNET public release candidate preparation — 2026-10-02
 
+**Historical preparation record.** Source publication was subsequently authorized
+and completed; [post-release review](POST_RELEASE_REVIEW.md) records public URLs,
+successful remote CI and fresh public-clone verification. Statements below about
+unperformed publication/CI describe the earlier preparation stage, not current status.
+
 Version: v0.1.0-localnet.1. Protocol milestone 0c177fd is accepted; canonical
 consensus bytes and fixed local rules are unchanged. This report records
 preparation, not publication, an independent security audit or a public network.
@@ -115,7 +120,7 @@ fully tested implementation commit.
 The final snapshot's documentation and manifest are checked after adding this
 record. No remote tag, remote repository, release or running external network
 was created. The reviewed snapshot has no known remaining technical/license
-blocker; it awaits explicit publication authorization. Original Git history
+blocker; at that point it awaited explicit publication authorization. Original Git history
 remains private and is not a publication candidate.
 
 During preparation, the CLI integration test caught a Python file-mode assertion

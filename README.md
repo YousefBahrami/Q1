@@ -4,10 +4,15 @@
 security and no public monetary value implied.** Consensus, fee, reward and
 delay settings in this release are local test-profile rules, not final Q1 rules.
 
-Release candidate: **v0.1.0-localnet.1**, licensed under [Apache-2.0](LICENSE).
-The four-node protocol milestone was accepted at `0c177fd`. This candidate adds
-public reproduction instructions and local wallet/CLI tools. It has not been
-published to a remote service or independently security-audited.
+Published source release: [v0.1.0-localnet.1](https://github.com/YousefBahrami/Q1/releases/tag/v0.1.0-localnet.1),
+licensed under [Apache-2.0](LICENSE). **Public source release does not mean
+public network:** this release runs only on local loopback addresses. No public
+testnet or Mainnet has been launched. No complete independent security audit
+has been performed.
+
+Q1 is an open-source protocol project initiated by Yousef Bahrami.
+Yousef Bahrami is the project maintainer. These are project roles, not ownership
+of a network. No foundation, company or separate governing organization is implied.
 
 ## What Q1 is
 
@@ -22,7 +27,10 @@ The implemented [local profile](docs/protocol/Q1_LOCALNET_V0.md) defines exact
 bytes and rules. The [milestone report](docs/reports/milestones/LOCALNET_V0.md)
 and [machine-readable evidence](docs/reports/milestones/LOCALNET_V0_ACCEPTANCE.json)
 record the accepted scenario. [Release notes](docs/releases/v0.1.0-localnet.1.md)
-describe this candidate and its limits.
+describe this release and its limits. The
+[differentiation audit](docs/research/Q1_DIFFERENTIATION_AUDIT.md) assesses what
+the evidence supports; the [PUBLIC TESTNET v0 plan](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md)
+is a proposal awaiting human approval, not an implemented network.
 
 ## Architecture
 
@@ -46,7 +54,17 @@ local wallet/CLI → signed transfer → fixed producer → 3 fixed voters
 
 Start in the root of the received checkout or extracted source archive.
 No private files, iCloud location, account credentials or prior project history
-are needed. There is no public clone URL yet; publication requires separate approval.
+are needed. To obtain the published version:
+
+```sh
+git clone https://github.com/YousefBahrami/Q1.git
+cd Q1
+git checkout v0.1.0-localnet.1
+```
+
+The release tag and attached archive preserve the reviewed snapshot. Its
+pre-publication status text is historical; current status is documented on
+`main` and the release page. Stay on `main` to read the post-release review.
 
 - macOS or Linux with a C linker/toolchain and Git. The foreground harness uses
   POSIX file locks; wallet creation uses OS randomness from `/dev/urandom`.
@@ -58,8 +76,10 @@ are needed. There is no public clone URL yet; publication requires separate appr
 - Allow several GB of local disk space for debug builds, tests and Rustdoc.
   Generated artifacts are ignored by Git and excluded from release archives.
 
-The recorded local verification host is macOS x86_64. Ubuntu CI is configured
-in `.github/workflows/ci.yml`; a successful remote run is not claimed here.
+The recorded local verification host is macOS x86_64. Ubuntu remote CI passed
+for the [published tag](https://github.com/YousefBahrami/Q1/actions/runs/37035748177),
+including actual four-process acceptance and wallet/CLI integration.
+See [current CI runs](https://github.com/YousefBahrami/Q1/actions) for later commits.
 
 ## Build
 
@@ -219,8 +239,9 @@ The status CLI is a local observation tool, not a trustless light client.
 checksums from a clean committed tree. It performs no upload or tagging. The
 private working repository retains personal collaboration context and historical
 machine paths; `.gitattributes` excludes that context from the public snapshot.
-**Do not publish its original Git history.** Use the reviewed source snapshot
-as the basis of any separately authorized public repository.
+**Do not publish its original Git history.** The public repository was initialized
+from the reviewed snapshot with new root commit `2f3b95375be9bb38aa8e2196759c2bb8554d68b9`.
+The original release assets and tag remain unchanged by later documentation updates.
 
 ## Roadmap
 
@@ -229,4 +250,5 @@ rotation/failover, admission, network hardening, resource policy and recovery
 of unfinalized work. Before Mainnet: finalize economics and delay mechanisms,
 production custody, governance and independent security review. No dates or
 Mainnet readiness are promised. See [open decisions](OPEN_DECISIONS.md) and
-[contribution guidance](CONTRIBUTING.md).
+[contribution guidance](CONTRIBUTING.md). Public-value activity is outside this
+milestone; see [pre-offer boundary](docs/releases/PRE_OFFER_BOUNDARY.md).

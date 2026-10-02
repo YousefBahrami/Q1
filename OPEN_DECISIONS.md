@@ -16,7 +16,10 @@ selection. They do not close DEC-Q1-005/009/013/014/019/020/021/022/023 for the
 general protocol. Exact local schemas, domain allocations and limits are in
 `docs/protocol/Q1_LOCALNET_V0.md`. No further human choice is needed for the
 completed local acceptance target. DEC-Q1-015 was subsequently approved as
-Apache-2.0 during release preparation; publication itself remains unauthorized.
+Apache-2.0 during release preparation. Separate human authorization subsequently
+approved publication; v0.1.0-localnet.1 is now a public source release.
+The [post-release plan](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md) proposes
+public-testnet gates only; all general protocol decisions above remain open.
 
 ⸻
 
@@ -619,12 +622,14 @@ Option B: Copyleft open-source license.
 Option C: Keep all rights reserved temporarily with explicit research terms.
 Risks: contribution ambiguity, incompatible dependencies, barriers to independent clients, unintended commercialization rights.
 Remaining scope: contribution process and trademark policy are not selected by a software license.
-Next Step: Keep license/attribution in the source candidate; obtain explicit publication authorization.
+Next Step: Maintain the approved license and factual attribution in the public source repository.
 
 Decision (2026-10-02): Apache-2.0 explicitly approved by the owner during
 LOCALNET public release candidate preparation. LICENSE contains the official
 text; LICENSE_DECISION.md records the comparison and superseded placeholder.
-No remote publication or tag push is authorized by this choice.
+The license choice alone did not authorize publication. A subsequent explicit
+human instruction authorized the completed public snapshot release, separately
+from any public-network launch.
 
 ## DEC-Q1-016
 Title: Initial integer remainder destination

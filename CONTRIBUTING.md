@@ -16,6 +16,10 @@ Intentionally public test seeds must say:
 TEST ONLY — NEVER USE FOR VALUE-BEARING NETWORKS.
 Do not post security exploit details publicly; follow SECURITY.md.
 
-A public repository and issue/PR endpoint have not been published yet.
-Prepare reviewable patches locally until an official contribution channel exists.
+The public repository is [YousefBahrami/Q1](https://github.com/YousefBahrami/Q1).
+Use its [issues](https://github.com/YousefBahrami/Q1/issues) for non-sensitive
+technical reports and [pull requests](https://github.com/YousefBahrami/Q1/pulls)
+for reviewable changes. Yousef Bahrami is the project initiator and maintainer.
+Do not submit vulnerability details publicly; the security intake limitation
+in SECURITY.md still applies.
 No CLA, DCO workflow or maintainer contact is implied by this document.

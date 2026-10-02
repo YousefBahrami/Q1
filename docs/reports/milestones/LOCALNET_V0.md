@@ -1,5 +1,11 @@
 # LOCALNET v0 milestone verification — 2026-10-02
 
+Publication update: Apache-2.0 was subsequently approved and the
+[public source release](https://github.com/YousefBahrami/Q1/releases/tag/v0.1.0-localnet.1)
+and remote CI completed. [Post-release evidence](../../releases/POST_RELEASE_REVIEW.md)
+records those later checks. The local test observations below retain their
+original scope; they do not describe an operated public network.
+
 ## COMPLETED
 
 Implemented full canonical state commitment, local genesis and signed compound
@@ -14,7 +20,8 @@ historical conformance tests, 23 existing Rust/Node/Python protocol vectors,
 13 frozen LOCALNET vectors checked by Rust and independent Python canonical
 reconstruction/hashing, actual four-process acceptance, format, Clippy with
 warnings denied, workspace build, Rustdoc with warnings denied and blocking
-documentation checks. Remote CI was not executed.
+documentation checks. Remote CI was not executed during that original local run;
+it subsequently passed during publication.
 
 The old negative test treating 0x0011 as unregistered initially failed after
 its authorized local registration. It was updated with the domain registry;
@@ -46,14 +53,15 @@ network is left running by the acceptance harness.
 
 ## NEXT
 
-Review the local-only release candidate and settle DEC-Q1-015 before any public
-source distribution. Packaging/publication and public-network readiness are
-separate work; they have not been performed by this milestone.
+Review the [differentiation audit](../../research/Q1_DIFFERENTIATION_AUDIT.md) and
+[PUBLIC TESTNET plan](../../research/Q1_PUBLIC_TESTNET_V0_PLAN.md). Source publication
+and DEC-Q1-015 are complete; public-network implementation awaits human approval.
 
 ## REAL BLOCKERS
 
 No blocker remains for this four-node local acceptance target. Final public
-quorum, fault model, delay, economics, admission and license remain open.
+quorum, fault model, delay, economics and admission remain open. The license
+decision is closed as Apache-2.0.
 Producer failover, automatic unfinalized-work recovery, partial proofs and
 production wallet custody are deferred. Full bounded archives and loopback TCP
 are deliberate local limits; see the current execution profile.
@@ -68,4 +76,5 @@ proof that code existed.
 
 None for the approved sequence: four nodes → signed transfer → fee=1 →
 common finalized state → voter stop → 2-of-3 progress → restart → catch-up →
-identical StateRoot. This result does not claim Mainnet or a published release.
+identical StateRoot. This runtime result does not establish Mainnet readiness;
+the subsequent public source publication is a separate completed milestone.

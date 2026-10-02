@@ -1,0 +1,19 @@
+{
+  "source_commit": "69dde456dbe094087eccd8467cbad661029636d9",
+  "clean_clone_full_checks": "passed",
+  "public_snapshot_full_checks": "passed",
+  "public_snapshot_has_no_git_or_personal_context": true,
+  "independent_build_directories": true,
+  "shared_installed_toolchain_and_dependency_download_cache": true,
+  "archive_sha256": "c7a7061042422498a4b58c5bb9a78c6b245d5ae27c07a84f25813dc7ff6a8c89",
+  "files": 174,
+  "verification_host": "x86_64-apple-darwin",
+  "remote_ci_executed": false,
+  "workspace_rust_tests": 86,
+  "historical_conformance_tests": 4,
+  "protocol_reference_vectors": 23,
+  "localnet_reference_vectors": 13,
+  "manual_wallet_cli_integration": "passed",
+  "four_process_acceptance": "passed",
+  "source_archive_repeated_hash": "identical for the same commit"
+}

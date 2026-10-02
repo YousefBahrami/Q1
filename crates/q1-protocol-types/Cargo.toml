@@ -1,0 +1,18 @@
+[package]
+name = "q1-protocol-types"
+version = "0.1.0-localnet.1"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Approved Q1 V1 object schemas and deterministic commitments"
+
+[dependencies]
+q1-primitives = { path = "../q1-primitives" }
+
+[dev-dependencies]
+proptest = "=1.9.0"
+sha2.workspace = true
+
+[lints]
+workspace = true

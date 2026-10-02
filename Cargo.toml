@@ -1,0 +1,20 @@
+[workspace]
+resolver = "3"
+members = ["crates/q1-primitives", "crates/q1-protocol-types", "crates/q1-localnet", "crates/q1-node"]
+exclude = ["research/pre_m1_conformance"]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.97.1"
+license = "Apache-2.0"
+
+[workspace.dependencies]
+ed25519-dalek = { version = "=3.0.0", default-features = false, features = ["fast", "zeroize"] }
+sha2 = { version = "=0.11.0", default-features = false }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+
+[workspace.lints.clippy]
+all = "deny"

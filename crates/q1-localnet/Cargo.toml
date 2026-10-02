@@ -1,0 +1,18 @@
+[package]
+name = "q1-localnet"
+version = "0.1.0-localnet.1"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Explicit LOCALNET v0 accounting and voting policy, not production consensus"
+
+[dependencies]
+q1-primitives = { path = "../q1-primitives" }
+q1-protocol-types = { path = "../q1-protocol-types" }
+
+[dev-dependencies]
+proptest = "=1.9.0"
+
+[lints]
+workspace = true

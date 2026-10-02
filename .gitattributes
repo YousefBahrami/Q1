@@ -1,0 +1,4 @@
+# Personal collaboration context stays in the private working repository.
+# This does NOT sanitize Git history or authorize pushing this repository.
+/YOS export-ignore
+/AGENTS.md export-ignore

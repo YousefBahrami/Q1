@@ -1,0 +1,20 @@
+{
+  "profile": "LOCALNET_V0",
+  "nodes": 4,
+  "quorum": "2-of-3",
+  "genesis": "289e7001bc6259d98aef2296ae462792aea894e11338613b14d2c7845eb0d3c4",
+  "offline_progress": {
+    "height": 2,
+    "votes": 2,
+    "stopped_pid": 454
+  },
+  "restart_equivocation_rejected": true,
+  "one_of_three_rejected_without_state_change": true,
+  "final_height": 4,
+  "final_state_root": "b7ec7d47f4cf37d029e74bab02d8bc2aab191f5a5733f92ac4310d919183b087",
+  "reward_pool": 4,
+  "total_supply": 1000,
+  "restart_catch_up": true,
+  "post_restart_transfer": true,
+  "all_processes_recovered": true
+}

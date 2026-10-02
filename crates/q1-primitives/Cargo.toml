@@ -1,0 +1,18 @@
+[package]
+name = "q1-primitives"
+version = "0.1.0-localnet.1"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Deterministic protocol primitives for the experimental Q1 project"
+
+[dependencies]
+ed25519-dalek.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+proptest = "=1.9.0"
+
+[lints]
+workspace = true

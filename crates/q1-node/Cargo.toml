@@ -1,0 +1,16 @@
+[package]
+name = "q1-node"
+version = "0.1.0-localnet.1"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Explicit loopback-only Q1 LOCALNET v0 node"
+
+[dependencies]
+q1-primitives = { path = "../q1-primitives" }
+q1-protocol-types = { path = "../q1-protocol-types" }
+q1-localnet = { path = "../q1-localnet" }
+
+[lints]
+workspace = true

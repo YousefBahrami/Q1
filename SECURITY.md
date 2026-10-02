@@ -39,6 +39,12 @@ Do not include credentials, wallet seeds or unrelated personal/infrastructure
 data in reports. Testing is authorized only on environments you own or have
 explicit permission to test.
 
+Commit identity and contact privacy are documented in the
+[public email audit](docs/security/PUBLIC_EMAIL_PRIVACY_AUDIT.md). GitHub noreply
+is a commit identity, not a vulnerability-reporting mailbox. Verify project
+origin through the [canonical channels](BRAND.md) before trusting a release;
+a third-party fork or matching checksum alone does not establish endorsement.
+
 ## References
 
 The implemented [LOCALNET profile](docs/protocol/Q1_LOCALNET_V0.md) takes

@@ -14,14 +14,18 @@ Private working checkouts additionally use AGENTS.md/YOS when present. Those
 personal collaboration files are excluded from the public source snapshot;
 they are not build, test, contribution or protocol dependencies.
 
-Current phase: post-release review of Q1 LOCALNET v0, v0.1.0-localnet.1.
+Current phase: post-publication identity/privacy and early-revenue preparation
+for Q1 LOCALNET v0, v0.1.0-localnet.1.
 The [public source release](https://github.com/YousefBahrami/Q1/releases/tag/v0.1.0-localnet.1)
 and remote CI are complete. This is public source distribution, not a public
 network or Mainnet. Q1 is an open-source protocol project initiated by Yousef
 Bahrami, who maintains the project. Apache-2.0 is approved under DEC-Q1-015.
 
-The current human instruction authorizes status/attribution corrections,
-an evidence-based differentiation audit and a PUBLIC TESTNET v0 plan only.
+The current human instruction authorizes public email/privacy review, canonical
+identity clarification and a comparison of pre-Mainnet revenue options, with
+an explicit approval boundary before any monetary Q1 distribution. No sales,
+payments, outreach, hosted services or public-value activity are activated.
+The preceding differentiation audit and PUBLIC TESTNET v0 plan remain proposals.
 Testnet implementation requires explicit approval of the thesis and milestone.
 No consensus, economics, delay or admission decision is made by these documents.
 
@@ -55,6 +59,9 @@ B. IMPLEMENTABLE NOW
 - Review the [technical thesis](docs/research/Q1_DIFFERENTIATION_AUDIT.md) and
   [proposed testnet gates](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md).
 - Maintain public status and attribution without changing protocol behavior.
+- Review [open-source strategy](docs/research/Q1_OPEN_SOURCE_STRATEGY.md),
+  [early revenue options](docs/research/Q1_EARLY_REVENUE_OPTIONS.md) and
+  [public email privacy](docs/security/PUBLIC_EMAIL_PRIVACY_AUDIT.md).
 
 C. BLOCKED BY REAL PROTOCOL DECISION (outside completed local acceptance)
 - General public-network quorum/fault model, producer selection and round changes.

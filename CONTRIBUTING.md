@@ -23,3 +23,9 @@ for reviewable changes. Yousef Bahrami is the project initiator and maintainer.
 Do not submit vulnerability details publicly; the security intake limitation
 in SECURITY.md still applies.
 No CLA, DCO workflow or maintainer contact is implied by this document.
+
+Before pushing, review author/committer identities and file contents for personal
+contact information. Maintainer commands and the limits of GitHub's privacy
+settings are in the [public email audit](docs/security/PUBLIC_EMAIL_PRIVACY_AUDIT.md).
+Use [BRAND.md](BRAND.md) to distinguish upstream origin from independent forks;
+existing license/attribution notices must not be removed as a privacy shortcut.

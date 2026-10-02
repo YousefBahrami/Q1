@@ -4,6 +4,15 @@ All notable specification, architecture, and implementation changes are
 recorded here. Changes to protocol semantics require an approved decision or
 ADR and must identify affected requirement IDs.
 
+## Identity/privacy and early-revenue preparation — 2026-10-03
+
+- Audited public commit identities, files, release metadata and downloaded assets;
+  found only the existing GitHub noreply identity in baseline Git metadata.
+- Added canonical project/fork guidance without changing Apache-2.0 or asserting
+  registered trademark rights; documented future commit privacy commands.
+- Compared nine revenue paths and expanded the explicit monetary-distribution
+  approval boundary. No token sale, payment channel or hosted service launched.
+
 ## Post-release documentation review — 2026-10-02
 
 - Corrected public-source/CI status and project attribution; protocol behavior unchanged.

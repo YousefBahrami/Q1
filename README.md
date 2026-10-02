@@ -14,6 +14,11 @@ Q1 is an open-source protocol project initiated by Yousef Bahrami.
 Yousef Bahrami is the project maintainer. These are project roles, not ownership
 of a network. No foundation, company or separate governing organization is implied.
 
+Official source: [YousefBahrami/Q1](https://github.com/YousefBahrami/Q1).
+Official releases are designated in its [release index](https://github.com/YousefBahrami/Q1/releases).
+See [canonical identity and fork guidance](BRAND.md). Third-party implementations
+may describe their Q1 origin/compatibility without becoming official releases.
+
 ## What Q1 is
 
 Q1 is a Rust distributed-ledger research implementation with deterministic
@@ -252,3 +257,6 @@ production custody, governance and independent security review. No dates or
 Mainnet readiness are promised. See [open decisions](OPEN_DECISIONS.md) and
 [contribution guidance](CONTRIBUTING.md). Public-value activity is outside this
 milestone; see [pre-offer boundary](docs/releases/PRE_OFFER_BOUNDARY.md).
+The [open-source strategy](docs/research/Q1_OPEN_SOURCE_STRATEGY.md) and
+[early revenue comparison](docs/research/Q1_EARLY_REVENUE_OPTIONS.md) are planning
+documents; no payment channel, token offering or hosted network is launched.

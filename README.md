@@ -19,6 +19,9 @@ Official releases are designated in its [release index](https://github.com/Youse
 See [canonical identity and fork guidance](BRAND.md). Third-party implementations
 may describe their Q1 origin/compatibility without becoming official releases.
 
+Latest [technical development update](docs/launch/Q1_PUBLIC_TECHNICAL_UPDATE.md):
+LOCALNET status, resource research findings and ways to participate.
+
 ## What Q1 is
 
 Q1 is a Rust distributed-ledger research implementation with deterministic

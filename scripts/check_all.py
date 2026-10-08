@@ -20,6 +20,7 @@ def main():
         print("CHECK:", " ".join(map(str, command)), flush=True)
         subprocess.run(command, cwd=cwd, env=environment, stdout=stdout, check=True)
 
+    run(sys.executable, "-m", "unittest", "discover", "-s", "scripts/tests", "-p", "test_*.py")
     run(cargo, "fmt", "--all", "--", "--check")
     run(cargo, "clippy", "--workspace", "--all-targets", "--all-features", "--locked", "--", "-D", "warnings")
     run(cargo, "test", "--workspace", "--all-targets", "--all-features", "--locked")

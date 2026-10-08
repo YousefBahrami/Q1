@@ -22,6 +22,10 @@ may describe their Q1 origin/compatibility without becoming official releases.
 Latest [technical development update](docs/launch/Q1_PUBLIC_TECHNICAL_UPDATE.md):
 LOCALNET status, resource research findings and ways to participate.
 
+First independent attempt: use the short [LOCALNET reproduction guide](docs/validation/Q1_INDEPENDENT_REPRODUCTION_GUIDE.md).
+It has a pinned commit, one finite command and a success/failure report template.
+Negative results and unclear instructions are welcome.
+
 ## What Q1 is
 
 Q1 is a Rust distributed-ledger research implementation with deterministic

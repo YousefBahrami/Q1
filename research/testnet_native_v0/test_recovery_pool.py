@@ -139,12 +139,24 @@ class RecoveryPoolTests(unittest.TestCase):
             with self.ready(who=4) as other:
                 self.send(other,self.pending(4,0,self.h.signed(4,'status')));self.assertEqual(self.receive(other)[7],0)
             f=self.pending(5,0,self.h.signed(5,'status'))
-            # A duplicate floods one stable session; no expensive ledger reexecution.
-            rejected=False
+            # Submit a real burst: send/receive lockstep can stay below 32/s
+            # on a platform with slower TCP round trips, so it is not a flood.
+            raw=encode(f);burst=(struct.pack('!I',len(raw))+raw)*80
+            self.assertLessEqual(len(burst),65536)
+            one.sendall(burst)
+            rejected=False;responses=0
             for _ in range(80):
-                try:self.send(one,f);self.receive(one)
+                try:
+                    response=self.receive(one)
+                    self.assertEqual(response[7],0 if responses==0 else 1)
+                    responses+=1
+                except TimeoutError:self.fail('burst stalled instead of being rejected')
                 except (OSError,EOFError):rejected=True;break
             self.assertTrue(rejected)
+            self.assertGreater(responses,0)
+            with self.ready(who=4) as other:
+                self.send(other,self.pending(4,0,self.h.signed(4,'status')))
+                self.assertEqual(self.receive(other)[7],0)
         finally:one.close();two.close()
         self.assertEqual(self.ledger()['height'],0)
 

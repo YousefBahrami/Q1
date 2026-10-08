@@ -1,7 +1,8 @@
-# Q1 technical source candidate
+# Q1 public technical research
 
 Read README.md, CONTRIBUTING.md, SECURITY.md and the implemented LOCALNET profile.
-This is experimental source prepared for external review. Public Testnet remains
+This experimental source is public for external review; the approved source commit
+and public CI are linked in the current technical update. Public Testnet remains
 blocked. Published LOCALNET behavior and research native/failover behavior are
 separate profiles. Native inter-host/three-host/public safety, permissionless
 resource uniqueness and monetary issuance remain unproven or disabled.

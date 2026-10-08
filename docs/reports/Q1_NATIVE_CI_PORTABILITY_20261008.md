@@ -25,4 +25,4 @@ this note itself is not evidence of a successful remote rerun.
 
 Local validation: all ten recovery/pool tests passed after the correction. The
 corrected case also passed with the same 40ms client pacing diagnostic that
-reproduced the old failure. Remote rerun is pending this corrective commit.
+reproduced the old failure. Corrective commit `735b3fe` passed the [full public CI rerun](https://github.com/YousefBahrami/Q1/actions/runs/37835065229), including all 30 native Python tests and one-host native acceptance. The original failed run remains visible.

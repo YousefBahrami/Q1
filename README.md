@@ -1,6 +1,6 @@
-# Q1 LOCALNET v0
+# Q1 experimental ledger research
 
-**Experimental software — LOCALNET only. Not Mainnet. No claim of production
+**Experimental software — LOCALNET and permissioned TESTNET research. Not Mainnet. No claim of production
 security and no public monetary value implied.** Consensus, fee, reward and
 delay settings in this release are local test-profile rules, not final Q1 rules.
 
@@ -38,12 +38,12 @@ record the accepted scenario. [Release notes](docs/releases/v0.1.0-localnet.1.md
 describe this release and its limits. The
 [differentiation audit](docs/research/Q1_DIFFERENTIATION_AUDIT.md) assesses what
 the evidence supports; the [PUBLIC TESTNET v0 plan](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md)
-is a proposal awaiting human approval, not an implemented network.
+records research targets; Public Testnet launch remains blocked.
 
-## Research source candidate — not yet published or publicly validated
+## Public research source
 
-This checkout adds bounded research after the immutable LOCALNET release. It is
-an experimental source candidate; the release tag/archive remain unchanged.
+This checkout contains published bounded research after the immutable LOCALNET
+release. The release tag/archive remain unchanged.
 
 - [Resource v0](research/mining_delay_v0/README.md) and
   [v1](research/mining_delay_v1/README.md) preserve negative/access evidence.
@@ -58,23 +58,28 @@ an experimental source candidate; the release tag/archive remain unchanged.
   independent-host or SSH-network acceptance.
 
 `python3 scripts/check_all.py` includes these research tests and frozen proof
-replays. The new `q1-testnet` binary is a fixture-only ledger backend, not Mainnet
-or the existing LOCALNET node CLI. The new implementations use public fixture
-keys and fixed honest-voter assumptions. Resource rewards, service payments and
+replays. The `q1-testnet` binary is a research ledger backend. Earlier experiments
+use public fixture keys; the native harness provisions fresh test keys. Fixed
+honest-voter assumptions remain. Resource rewards, service payments and
 consensus authority remain separate. No monetary issuance or public network.
-Remote CI for this exact code candidate has not run; only local results may be
-claimed until publication is authorized and its public CI succeeds.
+The exact corrected source commit and passing public CI are linked below.
+Independent participant reproduction remains a separate milestone.
 
-## Native research source candidate
+## Public native research and independent review
 
-This checkout is a proposed source candidate for technical review, not a new
-release or public network. Native TLS authentication, replay/recovery and bounded
-sessions are implemented and tested locally. Real native two-host networking is
-pending. Read the [current technical update](docs/launch/Q1_EXTERNAL_VALIDATION_UPDATE.md)
-and [CI/reproduction scope](docs/releases/Q1_NATIVE_CANDIDATE_CI_SCOPE.md).
-GitHub Issues is the public technical contact. Candidate availability must not be
-inferred from the existing release tag; test the exact reviewed candidate revision.
-OpenSSL **3.x** is required on PATH for fresh test certificate generation.
+Native authenticated transport and replay/recovery/resource-limit tests are public
+at [commit `735b3fe`](https://github.com/YousefBahrami/Q1/commit/735b3fe1bc73a73bb40083ff2860b0d6e8dcc19c),
+with [passing public CI](https://github.com/YousefBahrami/Q1/actions/runs/37835065229).
+The existing LOCALNET release tag is unchanged. Native research instructions apply
+to the pinned source on `main`, with OpenSSL **3.x** on PATH; follow the
+[reproduction guide](docs/releases/Q1_NATIVE_CANDIDATE_CI_SCOPE.md).
+
+Read the [current technical status and participation invitation](docs/launch/Q1_EXTERNAL_VALIDATION_UPDATE.md).
+Independent builds, failed reproductions, code review and protocol criticism are
+welcome through GitHub Issues. The [external evidence register](docs/reports/Q1_EXTERNAL_VALIDATION_REGISTER.md)
+keeps participant results separate from CI. Native testing is one-host so far;
+real native inter-host and Public Testnet gates remain open. No token sale or
+monetary entitlement accompanies participation.
 
 ## Architecture
 
@@ -272,8 +277,9 @@ not override the current LOCALNET profile. `PROJECT.md` is the project status.
 ## Security and release status
 
 Read [SECURITY.md](SECURITY.md) before testing. There has been no complete
-independent security audit. Do not secure real-world value. Nodes bind only to
-loopback; do not forward their ports or expose this RPC on the Internet.
+independent security audit. Do not secure real-world value. LOCALNET nodes bind
+only to loopback; the native research adapter permits explicitly configured private
+addresses with mutual TLS. Do not forward Q1 ports or expose RPC to the Internet.
 Full archives are bounded at 16 MiB and rewritten on commit; this release makes
 no performance, scaling, public-network fault-tolerance or decentralization claim.
 State hashes are full commitments, without partial/light-client proofs.

@@ -1,7 +1,8 @@
-# Native research candidate: reproducibility and CI scope
+# Native research: reproducibility and CI scope
 
-2026-10-08. Remote-CI candidate, not a completed remote run. Use the exact reviewed
-candidate commit supplied with the source; the released LOCALNET tag remains unchanged.
+2026-10-08. Source commit `735b3fe1bc73a73bb40083ff2860b0d6e8dcc19c` is public and
+[its GitHub CI passed](https://github.com/YousefBahrami/Q1/actions/runs/37835065229).
+The released LOCALNET tag remains unchanged. Use that pinned source for reproduction.
 
 From a fresh checkout outside any other Cargo workspace, install the pinned Rust,
 Python 3.13.3, Node 20.17.0 and OpenSSL 3.x, then run:
@@ -17,7 +18,8 @@ LOCALNET/research acceptance. It needs process spawning, Unix sockets, loopback
 TCP, file locks, temporary disk and OpenSSL; no secrets, SSH/VPN or private host
 credentials. No native test is silently omitted. The timeout is 40 minutes;
 failure remains a failure. Dependency/toolchain access and hosted-runner timing
-still need the actual remote run, which has not been started by preparation.
+were exercised by the linked remote run. Future runner changes/failures must still
+be reported honestly; no one-host CI result proves private inter-host networking.
 
 Native-only checks after building:
 

@@ -52,3 +52,22 @@ precedence for this release's scope. Broader requirements and open threats are
 recorded in [security model](docs/12_SECURITY_MODEL.md),
 [adversarial scenarios](docs/13_HOW_TO_BREAK_Q1.md) and
 [open decisions](OPEN_DECISIONS.md).
+
+## Unpublished research candidate boundary
+
+The research candidate adds TESTNET_FAILOVER_V0 and multi-host deployment tooling.
+These are explicit private crash-only experiments using known fixture keys.
+LOCALNET retains its existing wire profile and limits. SSH forwarding does not
+make fixture keys secret, establish permissionless admission or confer Byzantine
+safety. Keep application RPC loopback-only; use only confirmed private hosts and
+pinned SSH host identities. No production key custody or public Internet service.
+Resource proofs demonstrate tested access, not physical uniqueness or mining yield.
+
+## Native research candidate
+
+The separate TESTNET adapter uses permissioned mutual TLS and explicit private
+addresses. It does not make the published LOCALNET RPC encrypted. Local crash,
+recovery and basic resource-limit tests do not establish public-network safety.
+Do not expose either profile publicly. Native real-host acceptance, rolling upgrade,
+key lifecycle rehearsal and public admission remain gated. No production mining,
+monetary issuance, public custody or completed independent audit is claimed.

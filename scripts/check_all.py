@@ -46,6 +46,28 @@ def main():
     run(cargo, "run", "--locked", "--target-dir", str(research_target), cwd=research)
     run("node", str(research / "node_conformance.js"))
     run(sys.executable, str(research / "python_vectors.py"))
+    # Isolated resource-lab tests: no mining benchmark or consensus activation.
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/mining_delay_v0", "-p", "test_*.py")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/mining_delay_v1", "-p", "test_*.py")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/testnet_failover_v0", "-p", "test_*.py")
+    with tempfile.TemporaryDirectory(prefix="q1-testnet-crash-check-") as temporary:
+        run(sys.executable, "research/testnet_failover_v0/run.py", "--output", str(Path(temporary) / "evidence"))
+    run(sys.executable, "research/mining_delay_v1/replay.py", "docs/reports/research/mining-delay-v1-2026-10-05")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/useful_resource_v2", "-p", "test_*.py")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/testnet_ledger_v0", "-p", "test_*.py")
+    with tempfile.TemporaryDirectory(prefix="q1-ledger-crash-check-") as temporary:
+        evidence = Path(temporary) / "evidence"
+        run(sys.executable, "research/testnet_ledger_v0/run.py", "--output", str(evidence))
+        run(sys.executable, "research/testnet_ledger_v0/run.py", "--replay", str(evidence / "acceptance.json"))
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/resource_uniqueness_v0", "-p", "test_*.py")
+    run(sys.executable, "research/resource_uniqueness_v0/replay.py", "docs/reports/research/resource-uniqueness-v0-2026-10-06")
+    run(sys.executable, "research/resource_uniqueness_v0/concurrent_audits.py", "--replay", "docs/reports/research/resource-concurrent-v0-2026-10-06")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/testnet_multihost_v0", "-p", "test_*.py")
+    run(sys.executable, "research/testnet_multihost_v0/smoke.py")
+    run(sys.executable, "research/testnet_native_v0/vectors.py")
+    run(sys.executable, "-m", "unittest", "discover", "-s", "research/testnet_native_v0", "-p", "test_*.py")
+    with tempfile.TemporaryDirectory(prefix="q1-native-check-") as temporary:
+        run(sys.executable, "research/testnet_native_v0/run.py", "--output", str(Path(temporary) / "evidence"))
     run(sys.executable, "scripts/check_documentation.py")
     if (ROOT / ".git").exists():
         run("git", "diff", "--check")

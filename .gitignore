@@ -22,3 +22,8 @@ __pycache__/
 state.cbor
 state.pending
 /.localnet-evidence/
+
+/.testnet-multihost/
+
+/.testnet-native/
+**/ledger-keys.json

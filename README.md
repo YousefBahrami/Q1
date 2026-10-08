@@ -40,6 +40,42 @@ describe this release and its limits. The
 the evidence supports; the [PUBLIC TESTNET v0 plan](docs/research/Q1_PUBLIC_TESTNET_V0_PLAN.md)
 is a proposal awaiting human approval, not an implemented network.
 
+## Research source candidate — not yet published or publicly validated
+
+This checkout adds bounded research after the immutable LOCALNET release. It is
+an experimental source candidate; the release tag/archive remain unchanged.
+
+- [Resource v0](research/mining_delay_v0/README.md) and
+  [v1](research/mining_delay_v1/README.md) preserve negative/access evidence.
+- [Useful resource v2](research/useful_resource_v2/README.md) tests retrievable
+  static content, reconstruction and shared storage.
+- [Resource uniqueness v0](research/resource_uniqueness_v0/README.md) measures
+  identity/root-alias counterexamples without a physical-resource oracle.
+- [Integrated TESTNET_FAILOVER_V0](research/testnet_ledger_v0/README.md) executes
+  real Q1 signed transfers and full StateRoots through bounded producer failures.
+- [Multi-host preparation](docs/testnet/Q1_MULTI_HOST_V0_RUNBOOK.md) provides
+  validated private SSH routing/deployment commands. Local CLI preflight is not
+  independent-host or SSH-network acceptance.
+
+`python3 scripts/check_all.py` includes these research tests and frozen proof
+replays. The new `q1-testnet` binary is a fixture-only ledger backend, not Mainnet
+or the existing LOCALNET node CLI. The new implementations use public fixture
+keys and fixed honest-voter assumptions. Resource rewards, service payments and
+consensus authority remain separate. No monetary issuance or public network.
+Remote CI for this exact code candidate has not run; only local results may be
+claimed until publication is authorized and its public CI succeeds.
+
+## Native research source candidate
+
+This checkout is a proposed source candidate for technical review, not a new
+release or public network. Native TLS authentication, replay/recovery and bounded
+sessions are implemented and tested locally. Real native two-host networking is
+pending. Read the [current technical update](docs/launch/Q1_EXTERNAL_VALIDATION_UPDATE.md)
+and [CI/reproduction scope](docs/releases/Q1_NATIVE_CANDIDATE_CI_SCOPE.md).
+GitHub Issues is the public technical contact. Candidate availability must not be
+inferred from the existing release tag; test the exact reviewed candidate revision.
+OpenSSL **3.x** is required on PATH for fresh test certificate generation.
+
 ## Architecture
 
 ```text

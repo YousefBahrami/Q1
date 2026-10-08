@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/q1-primitives", "crates/q1-protocol-types", "crates/q1-localnet", "crates/q1-node"]
+members = ["crates/q1-primitives", "crates/q1-protocol-types", "crates/q1-localnet", "crates/q1-node", "research/testnet_failover_v0", "crates/q1-testnet", "crates/q1-native-transport"]
 exclude = ["research/pre_m1_conformance"]
 
 [workspace.package]

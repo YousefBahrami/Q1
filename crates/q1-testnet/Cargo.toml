@@ -1,0 +1,16 @@
+[package]
+name = "q1-testnet"
+version = "0.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+description = "Explicit TESTNET_FAILOVER_V0 integration of Q1 execution and bounded failover"
+[dependencies]
+q1-localnet = { path = "../q1-localnet" }
+q1-primitives = { path = "../q1-primitives" }
+q1-protocol-types = { path = "../q1-protocol-types" }
+serde_json = "=1.0.151"
+sha2.workspace = true
+[lints]
+workspace = true

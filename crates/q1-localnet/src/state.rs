@@ -53,6 +53,31 @@ pub struct StateSnapshot {
     participant_registry: Vec<ParticipantRecordV1>,
 }
 impl StateSnapshot {
+    /// Creates the full-state commitment for the separately bound private
+    /// TESTNET_FAILOVER_V0 genesis. The caller must verify that genesis and
+    /// replay certificates; this constructor never confers finality.
+    pub fn for_testnet(
+        _: crate::TestnetFailoverV0,
+        genesis_id: GenesisId,
+        ledger: Ledger,
+        participant_registry: Vec<ParticipantRecordV1>,
+    ) -> Result<Self> {
+        if ledger.network() != q1_primitives::Network::PrivateTestnet
+            || participant_registry.len() != 5
+        {
+            return Err(Error::InvalidState("TESTNET_FAILOVER_V0 state context"));
+        }
+        q1_protocol_types::participant::ParticipantSetV1::new(
+            Height::ZERO,
+            participant_registry.clone(),
+        )?;
+        ledger.check_supply()?;
+        Ok(Self {
+            genesis_id,
+            ledger,
+            participant_registry,
+        })
+    }
     /// Binds conserved ledger state to its chain, genesis supply and fixed registry.
     pub fn new(genesis: &Genesis, ledger: Ledger) -> Result<Self> {
         if ledger.chain_id() != genesis.chain_id()

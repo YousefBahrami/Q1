@@ -44,6 +44,7 @@ pub struct AppliedTransfer {
 /// Accounts are never pruned, so spending to zero cannot erase replay protection.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Ledger {
+    network: Network,
     chain_id: ChainId,
     height: Height,
     total_supply: Amount,
@@ -69,6 +70,7 @@ impl Ledger {
             }
         }
         let ledger = Self {
+            network: Network::Localnet,
             chain_id,
             height,
             total_supply,
@@ -108,12 +110,37 @@ impl Ledger {
             return Err(Error::SupplyMismatch);
         }
         Ok(Self {
+            network: Network::Localnet,
             chain_id,
             height: Height::new(0),
             total_supply: declared_supply,
             reward_pool: Amount::ZERO,
             accounts,
         })
+    }
+    /// Creates a ledger for the guarded TESTNET_FAILOVER_V0 profile.
+    ///
+    /// This constructor reuses the exact accounting engine with an explicitly
+    /// selected private-testnet address context. Finality is a separate layer.
+    pub fn from_testnet_allocations(
+        _: crate::TestnetFailoverV0,
+        chain_id: ChainId,
+        declared_supply: Amount,
+        allocations: impl IntoIterator<Item = (AddressEnvelope, Amount)>,
+    ) -> Result<Self> {
+        let mut ledger = Self::from_allocations(
+            LocalnetV0::new(q1_protocol_types::chain::NetworkClass::Localnet)?,
+            chain_id,
+            declared_supply,
+            allocations,
+        )?;
+        ledger.network = Network::PrivateTestnet;
+        Ok(ledger)
+    }
+    /// Returns the address presentation context fixed at initialization.
+    #[must_use]
+    pub const fn network(&self) -> Network {
+        self.network
     }
     /// Returns the state height after successful whole-block execution.
     #[must_use]
@@ -199,7 +226,7 @@ impl Ledger {
             return Err(Error::ExpiredOrPremature);
         }
         let sender_address =
-            AddressEnvelope::from_address(transfer.body().sender_address(Network::Localnet)?);
+            AddressEnvelope::from_address(transfer.body().sender_address(self.network)?);
         if sender_address == fields.recipient_address {
             return Err(Error::SelfTransfer);
         }

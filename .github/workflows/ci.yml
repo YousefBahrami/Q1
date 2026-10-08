@@ -7,7 +7,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,5 +18,7 @@ jobs:
           python-version: '3.13.3'
       - name: Install pinned Rust toolchain
         run: rustup show active-toolchain
+      - name: Verify native certificate tooling
+        run: openssl version
       - name: Build, lint, test, and reproduce independent protocol vectors
         run: python3 scripts/check_all.py

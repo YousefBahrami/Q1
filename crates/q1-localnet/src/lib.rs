@@ -19,6 +19,20 @@ use q1_protocol_types::chain::NetworkClass;
 /// Proof that the caller selected the explicitly permitted LOCALNET v0 mode.
 #[derive(Clone, Copy, Debug)]
 pub struct LocalnetV0(());
+
+/// Explicit controlled-private TESTNET_FAILOVER_V0 execution capability.
+/// This does not activate a public network, delay witness or Mainnet profile.
+#[derive(Clone, Copy, Debug)]
+pub struct TestnetFailoverV0(());
+impl TestnetFailoverV0 {
+    /// Accepts only the already registered controlled private-testnet class.
+    pub fn new(network: NetworkClass) -> Result<Self> {
+        if network != NetworkClass::PrivateTestnet {
+            return Err(Error::InvalidGenesis("TESTNET_FAILOVER_V0 network class"));
+        }
+        Ok(Self(()))
+    }
+}
 impl LocalnetV0 {
     /// Rejects every non-local network; no production or implicit default exists.
     pub fn new(network: NetworkClass) -> Result<Self> {

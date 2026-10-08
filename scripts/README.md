@@ -20,6 +20,10 @@ public fixture files and `acceptance.json`; otherwise temporary data is removed.
 
 No public deployment or external CI execution is performed by these checks.
 
+The check script also runs the small negative/accounting tests for the isolated
+[resource laboratory](../research/mining_delay_v0/README.md). It does not execute
+the 1/4/16 MiB benchmark, enable mining in LOCALNET or distribute rewards.
+
 
 `localnet.py run` is a foreground interactive network, with status, transfer and
 retry commands from another terminal. `localnet_cli_test.py` exercises the

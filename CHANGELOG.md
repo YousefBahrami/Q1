@@ -4,6 +4,81 @@ All notable specification, architecture, and implementation changes are
 recorded here. Changes to protocol semantics require an approved decision or
 ADR and must identify affected requirement IDs.
 
+## Limited v1 and crash-only TESTNET execution — 2026-10-05
+
+- Implemented independent-corpus access evidence, live fresh challenges, full
+  recovery controls and resource-unit attribution simulations. Recorded 210
+  trials, negative outcomes, replay fixtures and explicit trust limitations.
+- Implemented an isolated signed-log TESTNET experiment with two producers,
+  three durable voters and an ordinary learner; six-process crash/recovery and
+  malicious-message detection. No Q1 ledger/schema/LOCALNET policy changes.
+- Added automated research checks, preserved locked economic constraints,
+  prepared an English factual update and INTERNAL regional inquiry drafts,
+  and classified publication candidates. No outreach, sale or public deployment.
+
+## Resource-proof redesign and testnet hardening design — 2026-10-05
+
+- Accepted v0's negative storage/HDD/Sybil/fair-mining findings explicitly;
+  designed v1 fresh challenges, independent corpus, full retrieval controls,
+  cache/substitution measurements and sampling limitations. No v1 implementation.
+- Analyzed resource identities, split/pooling invariance, alias and rounding
+  attacks without selecting Mainnet identity or economic rules.
+- Classified producer failover as required before public testnet; proposed a
+  scoped failure model, durable adoption review, input budgets and zero-purchase
+  profiles. Existing LOCALNET and production consensus code are unchanged.
+- Compared Armenia, VARA, ADGM and Austria/France/Luxembourg with current official
+  sources; documented banking, provider, cost and classification gaps. Updated
+  all five workstreams and factual public copy without contact or publication.
+
+## Isolated mining/delay experiment v0 — 2026-10-04
+
+- Implemented a bounded, standalone research module for deterministic dataset
+  commitments, challenge evidence, strict verification and resource measurements.
+  LOCALNET and all consensus/economic rules remain unchanged.
+- Measured 1/4/16 MiB workloads and RAM/on-demand-regeneration substitutions;
+  recorded raw evidence/checksums and 32 artificial reward/supply scenarios.
+  Valid substitution does not establish physical HDD or persistent storage.
+- Added negative, isolation and accounting tests to the normal check workflow.
+- Updated testnet role/deployment design, Armenia/UAE/EU official-source provider
+  and cost research, factual devlog, service preparation and all five dashboard
+  rows. No sale, payment, contract, outreach or public-network launch occurred.
+
+## Balanced development program and historical recovery — 2026-10-03
+
+- Recovered mining/delay/HDD/economic ideas from reachable historical design,
+  classified scoped authority and conflicts, and mapped resource/evidence,
+  issuance alternatives and reward flows without inventing missing rules.
+- Added a permanent five-workstream dashboard with deliverables, evidence,
+  dependencies, costs, cash boundaries and human decision packages.
+- Refined the existing PUBLIC TESTNET v0 proposal into decision, host inventory,
+  multi-machine rehearsal and deployment-review gates with explicit acceptance
+  evidence; no completed mining or public-network claim.
+- Continued international legal-review preparation, factual community copy and
+  a bounded service-engagement packet. No provider contact, sale, spending,
+  public deployment or consensus-code change occurred.
+
+## Balanced public-presence and distribution preparation — 2026-10-03
+
+- Prepared ten-channel launch architecture, factual website/social copy, gated
+  roadmap and private nonmonetary interest-form design; channels not activated.
+- Compared Armenian issuer-only, partnered placement and own-CASP paths from
+  CBA/ARLIS sources, distinguishing capital, annual duty and offering thresholds.
+- Recorded relevant CBA-listed provider leads without claiming verified
+  placement authorization; drafted an inquiry without sending it.
+- Added international destination screening following the human's preference,
+  and a services-first revenue ladder. No sale, provider contact, protocol
+  change or new public-network deployment occurred.
+
+## Mainnet issuance and resource research — 2026-10-03
+
+- Reconstructed the economic/delay/HDD thesis from historical drafts and scoped
+  decisions; no complete Mainnet mining or supply policy is approved.
+- Traced test genesis, supply conservation and future reward-settlement/state
+  dependencies; clarified that LOCALNET balances carry no monetary claim.
+- Compared three issuance models, founder/treasury options and a gated
+  nonmonetary bootstrap. No consensus code, economic parameters or release
+  artifacts changed; no issuance, distribution or deployment activated.
+
 ## Identity/privacy and early-revenue preparation — 2026-10-03
 
 - Audited public commit identities, files, release metadata and downloaded assets;

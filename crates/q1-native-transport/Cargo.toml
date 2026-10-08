@@ -1,0 +1,18 @@
+[package]
+name = "q1-native-transport"
+version = "0.0.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+q1-primitives = { path = "../q1-primitives" }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+sha2.workspace = true
+rustls = { version = "=0.23.45", default-features = false, features = ["ring", "std"] }
+x509-parser = "=0.18.1"
+
+[lints]
+workspace = true

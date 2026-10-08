@@ -21,6 +21,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
+    if (ROOT / "docs/releases/Q1_PUBLICATION_MANIFEST.json").exists():
+        raise SystemExit(
+            "Mixed private research checkout: use the reviewed PUBLIC manifest "
+            "in a clean public checkout. Do not bulk-export internal strategy "
+            "or overwrite the existing LOCALNET release assets."
+        )
     if subprocess.check_output(["git","status","--porcelain","--untracked-files=all"],cwd=ROOT).strip():
         raise SystemExit("Refusing release from a dirty tree; commit and verify changes first")
     if not (ROOT / "LICENSE").is_file():

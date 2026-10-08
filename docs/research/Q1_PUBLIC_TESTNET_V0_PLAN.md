@@ -1,6 +1,10 @@
 # Q1 PUBLIC TESTNET v0 — proposed engineering milestone
 
-Date: 2026-10-02. **PLAN ONLY — NOT APPROVED FOR IMPLEMENTATION OR DEPLOYMENT.**
+Date: 2026-10-02; latest role/deployment refinement: 2026-10-04.
+**Crash-only v0 target and bounded failover experiment now approved. Public
+deployment and complete ledger integration remain unfinished.**
+See the [six-process experiment results](../testnet/Q1_TESTNET_FAILOVER_V0_RESULTS.md).
+The older approval gates below are historical where superseded by that scope.
 The public source release is complete. No public testnet currently exists.
 Do not expose, tunnel or forward LOCALNET RPC to the Internet. Its local network
 class, NONE witness and public fixture keys must remain confined to LOCALNET.
@@ -10,9 +14,90 @@ Its purpose is a bounded experiment in authenticated multi-host replication,
 leader failure, adversarial synchronization and accountable operations. It is
 not a token launch, a novelty claim or an implicit final Mainnet design.
 
-## Smallest meaningful candidate
+## Current refinement — 2026-10-05 design, not implementation
 
-**Recommendation, subject to a new human decision:** four equal-weight validators
+The [failure model and hardening design](../testnet/Q1_PUBLIC_TESTNET_V0_FAILURE_MODEL.md)
+classifies producer failover as **required before public testnet** and proposes
+two non-voting producers, durable majority adoption review, hostile sync/input
+tests and explicit budgets. Its crash-only three-voter/quorum-two candidate
+needs human approval; it does not claim one-Byzantine-voter safety.
+Five independent role hosts are proposed to test a producer-host failure plus
+a voter-host failure. This supersedes the one-producer/four-host deployment
+proposal below for that expanded target; available partial topologies may
+still be rehearsed with their limitations disclosed. LOCALNET remains unchanged.
+Resource v1 is design-only telemetry without authority; no public exposure yet.
+
+## Prior role design — human decision of 2026-10-04
+
+The next design separates bootstrap, producer, voters, ordinary full node and
+experimental miner/resource contributor. The requested deployment inventory is
+one producer, three voters, one ordinary node and one experimental participant.
+This supersedes the earlier four-voting-proposer recommendation as the next
+planning baseline, **not** as approval of a public consensus implementation or
+fault model. Preserve the non-voting producer separation in this design; public
+quorum, locks/round changes and producer replacement still need explicit rules.
+
+The [isolated mining experiment](Q1_MINING_DELAY_EXPERIMENT_V0.md) now exists.
+It is observable laboratory work and grants no final consensus authority.
+There is no live testnet, public discovery implementation or resource integration
+in the node. Earlier acceptance options below remain conditional research
+alternatives; do not execute their four-voter quorum tests unchanged on three
+voters or silently weaken the current LOCALNET network-class guard.
+
+| Role | Function | Authority / boundary | Implementation status |
+|---|---|---|---|
+| Bootstrap | Publish/serve approved peer addresses and network identity; permit multiple seeds and independent genesis pinning | Discovery only; no voting/admission/root truth. Bootstrap compromise must not validate false history. | Design only; may colocate with ordinary node once implemented |
+| Producer | Propose signed blocks under approved eligibility/round rules | No vote in this separated-role design; cannot finalize alone | Fixed LOCALNET producer works; public transport/failover not implemented |
+| Three voters | Independently validate execution and authorized signed consensus phases | Only approved committee rules may finalize; disconnect never changes membership | Local 2-of-3 works; public fault/quorum/lock model unresolved |
+| Ordinary full node | Verify from pinned genesis through untrusted peers; execute/recheck certificates and roots | No vote; an RPC status display is not a full node | Dedicated role not implemented; future acceptance must prove independent sync |
+| Experimental miner | Run bounded resource challenge/evidence experiment and export observations | No vote, block priority, eligibility weight, balance, payout or treasury authority; no consensus keys | Standalone lab implemented; testnet collection/transport not implemented |
+
+**CONSENSUS SECURITY:** authorized role keys, canonical signatures/objects,
+deterministic state, a reviewed fault/quorum/locking protocol, durable signing
+state and bounded authenticated transport. Only the scoped local subset exists
+today. With three voters and quorum two, intersecting certificates may share
+only one signer; if that signer equivocates, this alone does not establish
+one-Byzantine safety. The desired fault tolerance must be settled explicitly.
+
+**RESOURCE/MINING EXPERIMENT:** self-contained lab evidence plus untrusted
+timing/IO telemetry. A valid Merkle transcript does not prove physical HDD use,
+scarce capacity, fair selection or monetary cost. Collect its results through
+separate files or a future separately bounded observer service; do not feed
+them into block validity or state. Resource-process failure/flood must not
+consume voter-reserved capacity or block finalization.
+
+## Deployment profiles using existing hardware
+
+| Profile | Minimum placement / process count | What it can establish | Limits / cost |
+|---|---|---|---|
+| ZERO-COST LOCAL MULTI-PROCESS | One existing physical machine, no VM required (or one existing VM), six logical workloads: producer + three voters + ordinary node + lab participant; bootstrap colocates with ordinary node | Reproducible process boundaries, crash/replay and independent-role behavior once missing roles exist | One host/kernel/power/network failure domain; no geographic/operator independence. Only four LOCALNET nodes and standalone lab are runnable today; ordinary-node/bootstrap services remain future work. No new purchase, but CPU/storage/electricity/time are real. |
+| LOW-COST MULTI-MACHINE | Minimum four existing physical machines: M1 producer; M2 voter A + ordinary node/bootstrap; M3 voter B + lab participant; M4 voter C. At least two actual network connections for cross-network testing | Producer and each voter can fail on distinct hosts; observers and miner remain separate processes/users | Shared observer/voter and miner/voter resources must be disclosed, bounded and failure-tested. Independent machines do not prove independent owners. Existing machines/connectivity have not yet been inventoried. |
+| Preferred extra separation, if already available | Six existing hosts/VMs on independent hosts: producer, each voter, ordinary/bootstrap, miner individually | Removes experiment/observer load from voter machines | Six VMs on one host still have one hardware failure domain. No cloud acquisition is authorized. |
+
+Four VMs on four physical hosts can implement the minimum machine placement;
+four VMs on one physical machine cannot establish four-host tolerance. A second
+bootstrap endpoint can be a service on M1, without granting it any new authority.
+Do not expose either service until transport/security gates and human deployment
+approval are complete. A LAN rehearsal with one Internet connection is not
+evidence of cross-network behavior.
+
+Isolation requirements: separate users or sandboxes where available, dedicated
+directories and keys for consensus roles, separate read-only experiment output,
+no miner access to voter keys, and explicit CPU/memory/IO limits. This lab's
+observed peak RSS is about 47 MiB and its largest dataset 16 MiB; these are
+observations, not sizing guarantees for long-running nodes. Freeze node/load
+budgets after an actual host inventory. Sequential local testing costs no new
+equipment; public security review and unavailable connectivity remain unfunded.
+
+Next B test: after implementing/approving the missing profile, kill or overload
+the experimental process and confirm unchanged consensus roots/membership;
+then test ordinary-node hostile sync and signed cross-host recovery. The current
+phase implements the lab only. Keep the earlier PTN0-D/H/R/P gates, revising the
+topology-specific quorum/partition expectations after the public fault decision.
+
+## Earlier four-voter candidate — retained alternative, not selected baseline
+
+**Earlier recommendation, retained only as an alternative:** four equal-weight validators
 operated on independently failing hosts, with rotating proposers and a reviewed
 BFT protocol using three-of-four finalization. An additional non-voting node
 should join from published genesis through untrusted peers. Validators are an
@@ -134,11 +219,91 @@ Full independent review for a public-value system, production wallets, bridges,
 token sale, exchange integration, pricing and monetary distribution are excluded.
 See [PRE_OFFER_BOUNDARY](../releases/PRE_OFFER_BOUNDARY.md).
 
+## PTN0: next smallest reviewable milestone
+
+Refined on 2026-10-03 and updated for the 2026-10-04 role decision in workstream B of the
+balanced program (separate planning document omitted from this candidate).
+The milestone is a reproducible, nonmonetary **multi-machine network experiment**,
+not another four-process loopback demonstration. Its first deliverable is the
+decision package below. Separated roles are now the design baseline; the earlier
+four-voter topology is an unselected alternative if the eventual fault model
+requires revisiting committee size.
+
+| Gate | Concrete deliverable | Exit evidence |
+|---|---|---|
+| PTN0-D — decision package | Preserve separated roles; decide exact public fault/quorum/round model, state machine/engine, delay/security exclusion, test economics, bootstrap authority and resource budgets; experimental miner has no final authority | Dated human approval/ADR; no inference of public quorum approval from LOCALNET or the role count |
+| PTN0-H — host and operator inventory | Four existing separate hosts across at least two network connections using the placement above, with ordinary/bootstrap and miner colocation disclosed; document shared operators, providers, power and hardware | Capability/permission inventory; no claim of operator independence from machine count. Shared roles do not add failure domains. No private addresses/credentials in public artifacts. |
+| PTN0-R — isolated implementation/rehearsal | Implement approved profile and all required gates above; run the complete sequence below on controlled hosts before public exposure | Reproducible harness, scoped independent review, negative tests and machine-readable report; actual remote-host test cannot be replaced by local containers |
+| PTN0-P — deployment review | Review rehearsal, runbook, keys, bootstrap manifest, private incident contact, capacity and operator readiness | Separate human deployment approval. No Internet-facing launch in this documentation phase. |
+
+The proposed minimal discovery is a controlled published bootstrap list with
+more than one authenticated seed. It is not open validator admission. Freeze
+per-message/per-peer/global limits, disk budget, target load, timeout/network
+envelope and maximum recovery latency **before** running acceptance. Reuse the
+earlier proposed observation window only after approval; an arbitrary green run
+without a stated load/duration is not completion.
+
+Earlier ordered acceptance for the four-voter alternative, only if that
+alternative is subsequently approved. For the current separated-role design,
+retain sync/signature/resource/isolation checks, but replace all quorum,
+partition and proposer-replacement expectations with its explicitly approved
+fault/round rules before running acceptance:
+
+1. Independently reconstruct fresh test genesis on all four machines. Authenticate
+   peers through the approved bootstrap list; reject wrong-chain and unknown-role
+   messages. Record actual cross-network connections and operator/failure domains.
+2. Submit signed test transfers; verify proposal and every consensus phase's
+   signatures/context. Compare independently executed finalized roots at the
+   same height, not merely RPC-reported strings.
+3. Stop the active proposer; execute approved view change, resume within the
+   frozen recovery target, restart it and catch up without unsafe signing.
+   Test one unavailable voter without changing membership.
+4. Partition 2/2, demonstrate no unauthorized finalization, heal and recover;
+   test 3/1 progress under the approved assumptions. Include replay, equivocation,
+   stale-round and crash-during-signing tests, not only clean shutdowns.
+5. Start a fresh observer with only the pinned genesis and bootstrap information.
+   First offer corrupt/truncated/withheld history from an untrusted peer, then
+   allow another peer. Verify every accepted certificate, parent, execution and
+   root; catch up to a height/root common to all honest nodes.
+6. Send over-limit, truncated, wrong-version and slow frames and apply the frozen
+   hostile-load envelope. Prove bounded memory/queues/disk and honest progress
+   under the chosen fault/load assumptions. Persist metrics and rejection reasons.
+7. Complete the observation window, stop/restart all nodes, verify recovery and
+   accounting, and archive a redacted reproduction package with failures included.
+
+Network-integrated resource participation is **NOT IMPLEMENTED** today; the
+standalone v0 laboratory is implemented and measured. The human has excluded
+experimental-miner final authority. PTN0-D must still decide the public network's
+delay profile. Record separate statuses for laboratory evidence, network
+observation and consensus authority; do not claim mining-security acceptance.
+An out-of-consensus HDD benchmark may be reported as telemetry only; it must
+not change eligibility, finality, balances or rewards.
+If a resource role is selected, its reviewed construction, canonical vectors,
+replay/forgery/shortcut tests and independent verification become mandatory gates
+before success. Never bypass `LocalnetNoneEvidence` network guards.
+
+Proposed acceptance artifact (schema not yet implemented):
+
+| Evidence group | Required fields/content |
+|---|---|
+| Reproduction | Source commit, approved profile/ADR identifiers, configuration/genesis hashes, toolchain, commands and UTC run interval |
+| Topology | Pseudonymous node/host/operator IDs, network/failure-domain relationships, role keys and actual connection evidence; no secrets or unrelated personal data |
+| Consensus/execution | Signed test transactions, verified phase/certificate traces, each node's height/root checkpoints and conserved test-supply accounting |
+| Fault/recovery | Injected events, partition boundaries, signing/persistence crash points, observed progress/recovery latency and lock/equivocation outcomes |
+| Sync and limits | Rejected malicious histories/messages, successful peer fallback, configured bounds and measured peaks/load/latency |
+| Resource status | Exact engine/experiment and verification results, or explicit approved exclusion; no fabricated work proof |
+| Outcome | Per-check pass/fail/not-run, limitations, failed attempts and final common root after a shared barrier height |
+
+The expected root is calculated from the new profile, genesis and signed sequence.
+It is **not** required to equal LOCALNET's historical `b7ec…b087` fixture root.
+Agreement among independently verifying nodes and reproduction of the same new
+inputs is the criterion. No PTN0 run or artifact is claimed by this plan.
+
 ## Next decision for the human
 
-Approve or revise the audit's research thesis first. Then decide whether the
-smallest next target is the recommended permissioned four-validator BFT testnet
-(requiring a proposer-voting exception), a larger separated-role experiment,
-or further local research before any testnet. Explicitly settle the testnet-only
-economics/delay scope at the same time. Approval must precede implementation;
-Mainnet economics, permissionlessness and novelty remain separate questions.
+The isolated research and separated-role scope is already approved. Next settle
+the public fault/quorum/round rules and testnet-only economics/delay profile,
+then identify available hosts/operators and approve the concrete implementation
+package. If one-Byzantine tolerance is required, the requested three-voter
+topology needs explicit reconsideration rather than an unsupported safety claim.
+Mainnet economics, permissionlessness and public deployment remain separate.

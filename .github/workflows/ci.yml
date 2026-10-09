@@ -22,3 +22,5 @@ jobs:
         run: openssl version
       - name: Build, lint, test, and reproduce independent protocol vectors
         run: python3 scripts/check_all.py
+      - name: Reproduce public one-command LOCALNET validator
+        run: python3 scripts/validate_public_q1.py

@@ -15,6 +15,8 @@ Yousef Bahrami is the project maintainer. These are project roles, not ownership
 of a network. No foundation, company or separate governing organization is implied.
 
 Official source: [YousefBahrami/Q1](https://github.com/YousefBahrami/Q1).
+Official website: [q1-protocol.pages.dev](https://q1-protocol.pages.dev).
+The website introduces the experimental LOCALNET project; it is not a public network launch.
 Official releases are designated in its [release index](https://github.com/YousefBahrami/Q1/releases).
 See [canonical identity and fork guidance](BRAND.md). Third-party implementations
 may describe their Q1 origin/compatibility without becoming official releases.
